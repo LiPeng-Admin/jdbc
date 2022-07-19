@@ -6,6 +6,7 @@ package com.atguigu2.exer;
  * @create 2022/7/18
  */
 public class Student {
+
     private int flowID;
     private int type;
     private String idCard;
@@ -85,14 +86,26 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "flowID=" + flowID +
-                ", type=" + type +
-                ", idCard='" + idCard + '\'' +
-                ", examCard='" + examCard + '\'' +
-                ", studentName='" + studentName + '\'' +
-                ", location='" + location + '\'' +
-                ", grade=" + grade +
-                '}';
+        System.out.println("======查询结果=========");
+//        return "Student{" +
+//                "flowID=" + flowID +
+//                ", type=" + type +
+//                ", idCard='" + idCard + '\'' +
+//                ", examCard='" + examCard + '\'' +
+//                ", studentName='" + studentName + '\'' +
+//                ", location='" + location + '\'' +
+//                ", grade=" + grade +
+//                '}';
+        return info();
+    }
+
+    private String info() {
+        return "流水号： "+flowID+"\n"+
+                "四级/六级："+type+"\n"+
+                "身份证号："+idCard+"\n"+
+                "准考证号："+examCard+"\n"+
+                "学生姓名："+studentName+"\n"+
+                "区域："+location+"\n"+
+                "成绩："+grade;
     }
 }

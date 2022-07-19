@@ -75,75 +75,7 @@ public class Exer2Test {
         return 0;
     }
 
-    //问题2：输入身份证号或准考证号可以查询到学生的基本信息
-
-    @Test
-    public void testQueryStudentInfo() {
-        System.out.println("请选择您要输入的类型：");
-        System.out.println("a.准考证号");
-        System.out.println("b.身份证号");
-
-        Scanner scanner = new Scanner(System.in);
-        String selection = scanner.next();
-        if("a".equalsIgnoreCase(selection)){
-            System.out.println("请输入准考证号");
-            String examCard = scanner.next();
 
 
-        }else if ("b".equalsIgnoreCase(selection)){
 
-        }else {
-            System.out.println("您的输入有误，请重新进入程序");
-        }
-
-    }
-
-    public <T> T getStudentInfo(Class<T> clazz, String sql, Object... args) {
-        Connection connection = null;
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
-        try {
-            //获取数据库连接
-            connection = JDBCUtils.getConnection();
-            //预编译sql,返回PreparedStatement实例
-            preparedStatement = connection.prepareStatement(sql);
-
-            //填充占位符
-            for (int i = 0; i < args.length; i++) {
-                preparedStatement.setObject(i + 1, args[i]);
-
-            }
-            //执行并返回结果集
-            resultSet = preparedStatement.executeQuery();
-            //获取结果集的元数据
-            ResultSetMetaData metaData = resultSet.getMetaData();
-            //返回列的个数
-            int columnCount = metaData.getColumnCount();
-
-
-            if (resultSet.next()) {
-                T t = clazz.newInstance();
-                for (int i = 0; i < columnCount; i++) {
-                    //获取列值
-                    Object columnValue = resultSet.getObject(i + 1);
-                    //获取列名
-                    String columnLabel = metaData.getColumnLabel(i + 1);
-
-                    //通过反射
-                    Field field = clazz.getDeclaredField(columnLabel);
-                    field.setAccessible(true);
-                    field.set(t, columnValue);
-
-
-                }
-                return t;
-
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            JDBCUtils.closeResource(connection, preparedStatement, resultSet);
-        }
-        return null;
-    }
 }
