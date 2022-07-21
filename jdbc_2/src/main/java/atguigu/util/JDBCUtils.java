@@ -1,4 +1,4 @@
-package com.atguigu2.util;
+package atguigu.util;
 
 import java.io.InputStream;
 import java.sql.*;
