@@ -39,9 +39,9 @@ public class DBCPTest {
     }
     //方式2：推荐
     @Test
-    public void testGetConnection() throws Exception{
+    public void testGetConnection1() throws Exception{
         Properties properties = new Properties();
-        //方式1：
+          //方式1：
         InputStream stream = ClassLoader.getSystemClassLoader().getResourceAsStream("dbcp.properties");
 //        //方式2：
 //        FileInputStream stream1 = new FileInputStream("src/main/resources/dbcp.properties");

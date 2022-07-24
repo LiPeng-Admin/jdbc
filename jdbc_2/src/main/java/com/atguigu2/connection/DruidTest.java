@@ -11,6 +11,7 @@ import java.util.Properties;
 
 /**
  * @Description
+ * 测试Druid的数据库连接池技术
  * @Author lipeng
  * @create 2022/7/23
  */

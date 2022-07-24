@@ -1,5 +1,7 @@
 package com.atguigu.util;
 
+import org.apache.commons.dbutils.DbUtils;
+
 import java.io.InputStream;
 import java.sql.*;
 import java.util.Properties;
@@ -64,5 +66,28 @@ public class JDBCUtils {
         }
 
 
+    }
+    /*
+    使用DbUtils工具类实现资源关闭
+     *
+     */
+
+
+    public static void closeResource1(Connection connection, Statement statement, ResultSet res) {
+        try {
+            DbUtils.close(connection);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        try {
+            DbUtils.close(statement);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        try {
+            DbUtils.close(res);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 }

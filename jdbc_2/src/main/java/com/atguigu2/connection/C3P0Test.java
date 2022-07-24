@@ -7,6 +7,7 @@ import java.sql.Connection;
 
 /**
  * @Description
+ * 测试c3p0的数据库连接池技术
  * @Author lipeng
  * @create 2022/7/23
  */
